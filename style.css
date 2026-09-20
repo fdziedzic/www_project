@@ -41,13 +41,14 @@ body {
     z-index: 1000;
 }
 
+/* Kontener dla nawigacji - wyrównanie elementów */
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    position: relative;
+    width: 100%;
 }
-
 .logo {
     font-size: 24px;
     font-weight: 700;
@@ -77,12 +78,16 @@ body {
     color: var(--primary);
 }
 
+/* Ukrycie hamburgera na dużych ekranach (komputery) */
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    font-size: 22px;
+    font-size: 28px; /* Nieco większa ikona, łatwiejsza do kliknięcia */
     cursor: pointer;
+    color: #333;
+    padding: 10px;
+    z-index: 1001;
 }
 
 /* SEKCJE SPA / STRONY */
@@ -426,16 +431,19 @@ body {
     .hero, .about-container, .contact-wrapper {
         flex-direction: column;
     }
+    .menu-toggle {
+        display: block !important;
+    }
     .features {
         grid-template-columns: 1fr;
     }
 }
 
-@media(max-width: 768px) {
+@media(max-width: 992px) {
     .main-nav {
-        display: none;
+        display: none !important;
         position: absolute;
-        top: 70px;
+        top: 100%;
         left: 0;
         width: 100%;
         background: #fff;
@@ -444,15 +452,24 @@ body {
     .main-nav.open {
         display: block;
     }
+
+    /* Resetowanie układu listy na pionowy */
     .main-nav ul {
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
+        display: flex !important;
+        flex-direction: column !important; 
+        padding: 20px 0 !important;
+        margin: 0 !important;
+        list-style: none !important;
     }
+
     .menu-toggle {
-        display: block;
+        display: block !important;
     }
     .hero-content h1 {
         font-size: 32px;
+
     }
+	/* KLASA AKTYWNA: Pokazuje menu po kliknięciu hamburgera */
+    .main-nav.active {
+        display: block !important;
 }
