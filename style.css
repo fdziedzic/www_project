@@ -427,19 +427,16 @@ body {
 }
 
 /* MEDIA QUERIES (RWD) */
+
 @media(max-width: 992px) {
+
     .hero, .about-container, .contact-wrapper {
         flex-direction: column;
     }
-    .menu-toggle {
-        display: block !important;
-    }
-    .features {
+       .features {
         grid-template-columns: 1fr;
     }
-}
 
-@media(max-width: 992px) {
     .main-nav {
         display: none !important;
         position: absolute;
